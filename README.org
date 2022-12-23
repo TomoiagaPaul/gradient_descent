@@ -57,11 +57,11 @@ They are highlighted for your ease of understanding.
 Supplementary material: [[https://www.youtube.com/watch?v=sDv4f4s2SB8][Gradient Descent, Step-by-Step]] - Stat Quest with Josh Starmer (YouTube)
 
 *** Symbols used
-  - $x$ - Referring to the entire training set.
-  - $x^{(i)}$ - Referring to the i^th data point in the training set.
-  - $x_j ^{(i)}$ - Referring to the j^th feature of the i^th data point.
-  - $N$ - The total number of training data points.
-  - $F$ - The total number of features.
+  - $$x$$ - Referring to the entire training set.
+  - $$x^{(i)$}$ - Referring to the i^th data point in the training set.
+  - $$x_j ^{(i)}$$ - Referring to the j^th feature of the i^th data point.
+  - $$N$$ - The total number of training data points.
+  - $$F$$ - The total number of features.
     
 *** Hypothesis
 #+BEGIN_SRC python
@@ -80,7 +80,9 @@ This refers to the current approximated solution.
 In this case, it is simply a form of the classic *linear function* that we all learned in school.
 
 \begin{equation}
-y = ax + b
+
+$$y = ax + b$$
+
 \end{equation}
 #+BEGIN_CENTER
 /Formula 1. Revising the classic linear function./
