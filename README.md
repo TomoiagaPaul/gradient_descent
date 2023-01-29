@@ -1,20 +1,19 @@
-
 # Table of Contents
 
-1.  [List](#orga61f99a)
-2.  [Contents - What is in each file?](#org4d67f48)
-3.  [Summary - The gist of it.](#orgdcb758d)
-4.  [Technical Explanation - The nitty-gritty details.](#orgcbda8ee)
-    1.  [Feature Scaling](#org72ba5c3)
-    2.  [Mathematical Explanation](#org2955ec8)
-        1.  [Symbols used](#org8b2dd83)
-        2.  [Hypothesis](#orgde8403e)
-        3.  [Cost Function](#org98f4033)
-        4.  [Gradient Function](#org7c64a92)
-        5.  [Update rule](#org831ef88)
+1.  [TODO List](#todo)
+2.  [Contents - What is in each file?](#contents)
+3.  [Summary - The gist of it.](#summary)
+4.  [Technical Explanation - The nitty-gritty details.](#technical)
+    1.  [Feature Scaling](#scaling)
+    2.  [Mathematical Explanation](#maths)
+        1.  [Symbols used](#symbols)
+        2.  [Hypothesis](#hypothesis)
+        3.  [Cost Function](#cost)
+        4.  [Gradient Function](#gradient)
+        5.  [Update rule](#update)
 
 
-<a id="orga61f99a"></a>
+<a id="todo"></a>
 
 # TODO List
 
@@ -25,16 +24,16 @@
 -   Hyperlink to Medium article & invitation to "clap", comment and follow.
 
 
-<a id="org4d67f48"></a>
+<a id="contents"></a>
 
 # Contents - What is in each file?
 
--   <./housing.csv> - Source: [California Housing Prices 1990](https://www.kaggle.com/datasets/camnugent/california-housing-prices/versions/1?resource=download) (Kaggle)
--   <./linear_regression.py> - Implementation of Gradient Descent.
--   <./example.ipynb> - Example of how the above code is used in practice.
+-   [./housing.csv](./housing.csv) - Source: [California Housing Prices 1990](https://www.kaggle.com/datasets/camnugent/california-housing-prices/versions/1?resource=download) (Kaggle)
+-   [./linear_regression.py](./linear_regression.py) - Implementation of Gradient Descent.
+-   [./example.ipynb](./example.ipynb) - Example of how the above code is used in practice.
 
 
-<a id="orgdcb758d"></a>
+<a id="summary"></a>
 
 # Summary - The gist of it.
 
@@ -61,12 +60,12 @@ before tightening into the global solution.
 </div>
 
 
-<a id="orgcbda8ee"></a>
+<a id="technical"></a>
 
 # Technical Explanation - The nitty-gritty details.
 
 
-<a id="org72ba5c3"></a>
+<a id="scaling"></a>
 
 ## Feature Scaling
 
@@ -82,13 +81,13 @@ We find ourselves descending it at a snail's pace.
 
 **By scaling our features, it makes our loss function easier to descend.**
 
-Supplementary material: [The Importance of Feature Scaling](https://towardsdatascience.com/gradient-descent-the-learning-rate-and-the-importance-of-feature-scaling-6c0b416596e1#931e) *("Bad" Feature)* - Daniel Godoy (Medium)
+Supplementary material: [The Importance of Feature Scaling *("Bad" Feature)*](https://towardsdatascience.com/gradient-descent-the-learning-rate-and-the-importance-of-feature-scaling-6c0b416596e1#931e) - Daniel Godoy (Medium)
 
 *Note that in the file `example.ipynb` I don't implement any scaling.
 This is bad practice, but it helps to make my example much more easy to read.*
 
 
-<a id="org2955ec8"></a>
+<a id="maths"></a>
 
 ## Mathematical Explanation
 
@@ -98,18 +97,18 @@ They are highlighted for your ease of understanding.
 Supplementary material: [Gradient Descent, Step-by-Step](https://www.youtube.com/watch?v=sDv4f4s2SB8) - Stat Quest with Josh Starmer (YouTube)
 
 
-<a id="org8b2dd83"></a>
+<a id="symbols"></a>
 
 ### Symbols used
 
 -   $x$ - Referring to the entire training set.
--   ${x^{(i)}}$ - Referring to the i<sup>th</sup> data point in the training set.
--   ${x_j ^{(i)}}$ - Referring to the j<sup>th</sup> feature of the i<sup>th</sup> data point.
+-   ${x^{(i)}}$ - Referring to the $i$<sup>th</sup> data point in the training set.
+-   ${x_j ^{(i)}}$ - Referring to the $j$<sup>th</sup> feature of the $i$<sup>th</sup> data point.
 -   $N$ - The total number of training data points.
 -   $F$ - The total number of features.
 
 
-<a id="orgde8403e"></a>
+<a id="hypothesis"></a>
 
 ### Hypothesis
 
@@ -126,34 +125,20 @@ Supplementary material: [Gradient Descent, Step-by-Step](https://www.youtube.com
 This refers to the current approximated solution.
 In this case, it is simply a form of the classic **linear function** that we all learned in school.
 
-\begin{equation}
-y = ax + b
-\end{equation}
+$y = ax + b$
 
-<div class="org-center">
-<p>
 <i>Formula 1. Revising the classic linear function.</i>
-</p>
-</div>
 
 But we use our fancy-pancy symbols instead. Note that the structure is the same.
 
-\begin{equation}
-h(x^{(i)}) = \theta_{-1} + \theta_0 x^{(i)}_0 + \theta_1 x^{(i)}_1 ... \theta_n x^{(i)}_n
-\end{equation}
+$h(x^{(i)}) = \theta_{-1} + \theta_0 x^{(i)}_0 + \theta_1 x^{(i)}_1 ... \theta_n x^{(i)}_n$
 
-\begin{equation}
-h(x^{(i)}) = \displaystyle\sum_{j=0}^{F-1} (\theta_j x^{(i)}_j) + \theta_{-1}
-\end{equation}
+$h(x^{(i)}) = \displaystyle\sum_{j=0}^{F-1} (\theta_j x^{(i)}_j) + \theta_{-1}$
 
-<div class="org-center">
-<p>
 <i>Formula 2. A more generic linear function; enabling an arbitrary number of features.</i>
-</p>
-</div>
 
 
-<a id="org98f4033"></a>
+<a id="cost"></a>
 
 ### Cost Function
 
@@ -181,7 +166,7 @@ J(x) = \displaystyle\sum_{i=0}^{N-1} ( h(x^{(i)}) - y^(i) )^2
 </div>
 
 
-<a id="org7c64a92"></a>
+<a id="gradient"></a>
 
 ### Gradient Function
 
@@ -211,7 +196,7 @@ The gradient refers to all the **partial derivatives** of $J(x)$ with respect to
 </div>
 
 
-<a id="org831ef88"></a>
+<a id="update"></a>
 
 ### Update rule
 
