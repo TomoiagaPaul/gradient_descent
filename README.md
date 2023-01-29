@@ -133,7 +133,7 @@ But we use our fancy-pancy symbols instead. Note that the structure is the same.
 
 $h(x^{(i)}) = \theta_{-1} + \theta_0 x^{(i)}_0 + \theta_1 x^{(i)}_1 ... \theta_n x^{(i)}_n$
 
-$h(x^{(i)}) = \displaystyle\sum_{j=0}^{F-1} (\theta_j x^{(i)}_j) + \theta_{-1}$
+$h(x^{(i)}) = \sum_{j=0}^{F-1} (\theta_j x^{(i)}_j) + \theta_{-1}$
 
 <i>Formula 2. A more generic linear function; enabling an arbitrary number of features.</i>
 
